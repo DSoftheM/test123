@@ -23,7 +23,7 @@ function Test() {
 function SharedComponent() {
     return (
         <div>
-            <Link to={"/"}>Go to /home</Link>
+            <Link to={"/"}>Go to /home123</Link>
             <Link to={"/test"}>Go to /test</Link>
             <Outlet />
         </div>
