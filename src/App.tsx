@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Link, Outlet, Route, Routes } from "react-router-dom";
 import photoPath from "./photo.avif";
 
 function Home() {
@@ -20,11 +20,23 @@ function Test() {
     );
 }
 
+function SharedComponent() {
+    return (
+        <div>
+            <Link to={"/"}>Go to /home</Link>
+            <Link to={"/test"}>Go to /test</Link>
+            <Outlet />
+        </div>
+    );
+}
+
 export default function App() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/test" element={<Test />} />
+            <Route element={<SharedComponent />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/test" element={<Test />} />
+            </Route>
         </Routes>
     );
 }
